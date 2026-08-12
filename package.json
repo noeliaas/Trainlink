@@ -1,0 +1,41 @@
+{
+  "name": "trainlink",
+  "version": "0.1.0",
+  "private": true,
+  "description": "TrainLink — marketplace de entrenamiento personal",
+  "packageManager": "pnpm@10.12.1",
+  "engines": {
+    "node": ">=22.0.0",
+    "pnpm": ">=10.0.0"
+  },
+  "scripts": {
+    "dev": "turbo run dev --parallel",
+    "dev:api": "turbo run dev --filter=@trainlink/api",
+    "dev:web": "turbo run dev --filter=@trainlink/web",
+    "dev:admin": "turbo run dev --filter=@trainlink/admin",
+    "dev:mobile": "turbo run start --filter=@trainlink/mobile",
+    "build": "turbo run build",
+    "lint": "turbo run lint",
+    "typecheck": "turbo run typecheck",
+    "test": "turbo run test",
+    "test:integration": "turbo run test:integration --filter=@trainlink/api",
+    "test:e2e": "turbo run test:e2e --filter=@trainlink/web",
+    "db:generate": "pnpm --filter @trainlink/api prisma:generate",
+    "db:migrate": "pnpm --filter @trainlink/api prisma:migrate",
+    "db:migrate:deploy": "pnpm --filter @trainlink/api prisma:migrate:deploy",
+    "db:seed": "pnpm --filter @trainlink/api prisma:seed",
+    "db:studio": "pnpm --filter @trainlink/api prisma:studio",
+    "db:reset": "pnpm --filter @trainlink/api prisma:reset",
+    "docker:up": "docker compose up -d",
+    "docker:down": "docker compose down",
+    "docker:logs": "docker compose logs -f",
+    "format": "prettier --write \"**/*.{ts,tsx,js,jsx,json,md,yml,yaml}\"",
+    "format:check": "prettier --check \"**/*.{ts,tsx,js,jsx,json,md,yml,yaml}\"",
+    "clean": "turbo run clean && rm -rf node_modules"
+  },
+  "devDependencies": {
+    "prettier": "^3.5.3",
+    "turbo": "^2.10.5",
+    "typescript": "^5.8.3"
+  }
+}
